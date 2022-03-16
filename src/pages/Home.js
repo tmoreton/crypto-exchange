@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -26,5 +27,10 @@ const Home = () => {
     </React.Fragment>
   )
 };
+
+Home.propTypes = {
+  exchangeList: PropTypes.array,
+  getExchanges: PropTypes.func
+}
 
 export default Home;

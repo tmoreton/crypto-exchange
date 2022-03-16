@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
@@ -6,7 +7,7 @@ import { getExchange } from '../redux/actions';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 
-const Home = () => {
+const Details = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const exchange = useSelector(state => state.crypto.exchange)
@@ -17,7 +18,7 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <Helmet title='Home Page' />
+      <Helmet title={exchange.name} />
       <Container fluid className='p-0'>
         <Row className='p-5 justify-content-md-center'>
           <Col md={10}>
@@ -49,4 +50,21 @@ const Home = () => {
   )
 };
 
-export default Home;
+Details.propTypes = {
+  exchange: PropTypes.object,
+  getExchange: PropTypes.func
+}
+
+Details.defaultProps = {
+  exchange: {
+    id: 'coinbase',
+    image: '',
+    name: 'Coinbase',
+    country: 'US',
+    trust_score: 1,
+    trust_score_rank: 10,
+    year_established: 2015
+  },
+}
+
+export default Details;

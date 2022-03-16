@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -35,5 +36,21 @@ const Tablelist = ({ data }) => {
     </React.Fragment>
   )
 };
+
+Tablelist.propTypes = {
+  data: PropTypes.array
+}
+
+Tablelist.defaultProps = {
+  exchange: {
+    id: 'coinbase',
+    image: '',
+    name: 'Coinbase',
+    country: 'US',
+    trust_score: 1,
+    trust_score_rank: 10,
+    year_established: 2015
+  },
+}
 
 export default Tablelist;
