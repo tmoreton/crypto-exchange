@@ -2,9 +2,9 @@
 
 This project can be found at (https://crypto-exchange-stake.netlify.app).
 
-![Homepage](/src/assets/screnshot-home.png)
+![Homepage](https://github.com/tmoreton/crypto-exchange/blob/main/src/assets/screenshot-home.png)
 
-![Details Page](/src/assets/screnshot-details.png)
+![Details Page](https://github.com/tmoreton/crypto-exchange/blob/main/src/assets/screenshot-details.png)
 
 ## To Run Locally
 `cd crypto-exchange`
