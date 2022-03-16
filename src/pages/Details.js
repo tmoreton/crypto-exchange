@@ -1,9 +1,9 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { getExchange } from '../redux/actions';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
                     <b>Trust Score:</b> {exchange.trust_score} <br/>
                     <b>Trust Score Rank:</b> {exchange.trust_score_rank}
                   </Card.Text>
-                  <a href={ exchange.url } target="_blank">
+                  <a href={ exchange.url } target="_blank" rel="noopener noreferrer">
                     <Button variant="primary">Go to {exchange.name}</Button>
                   </a>
                 </Card.Body>
