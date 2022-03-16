@@ -1,20 +1,30 @@
 import { combineReducers } from 'redux'
 
 const initialState = {
-  crypto: []
+  crypto: {
+    exchanges: [],
+    exchange: {
+      name: '',
+      image: '',
+    }
+  }
 };
 
-const coinReducer = (state = initialState, action) => {
+const cryptoReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_EXCHANGES':
-      return action.payload
+      return {...state, exchanges: action.payload}
+    case 'GET_EXCHANGE':
+      return {...state, exchange: action.payload}
+    case 'CLEAR_EXCHANGE':
+      return {...state, exchange: {}}
     default:
       return state
   }
 }
 
 const rootReducer = combineReducers({
-  crypto: coinReducer,
+  crypto: cryptoReducer,
 })
 
 export default rootReducer

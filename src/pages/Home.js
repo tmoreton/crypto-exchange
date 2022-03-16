@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -7,7 +7,7 @@ import Tablelist from '../components/Tablelist';
 
 const Home = () => {
   const dispatch = useDispatch()
-  const exchangeList = useSelector(state => state.crypto)
+  const exchangeList = useSelector(state => state.crypto.exchanges)
 
   useEffect(() => {
     dispatch(getExchanges())

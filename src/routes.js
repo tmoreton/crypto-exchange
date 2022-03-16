@@ -5,16 +5,23 @@ import React from 'react';
 
 // Pages
 import Home from './pages/Home';
+import Details from './pages/Details';
 
 const routes = [
   {
     path: '/',
-    element: <Home />,
+    children: [
+      {
+        path: '/exchanges',
+        element: <Home />,
+      },
+      {
+        path: '/exchanges/:id',
+        element: <Details />,
+      },
+    ],
   },
-  // {
-  //   path: '*',
-  //   element: <Page404 />,
-  // },
+
 ];
 
 export default routes;

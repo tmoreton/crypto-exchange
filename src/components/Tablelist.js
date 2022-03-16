@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Tablelist = ({ data }) => {
-  console.log(Object.keys(data))
   return (
     <React.Fragment>
       <Table striped bordered hover>
@@ -17,7 +17,7 @@ const Tablelist = ({ data }) => {
         </thead>
         <tbody>
           {
-            data.map(exchange => {
+            data && data.map(exchange => {
               return (
                 <tr key={exchange.id}>
                   <td><img src={exchange.image} alt={exchange.name} with='25px' height='25px' className='p-1'/>{exchange.name}</td>
@@ -25,6 +25,7 @@ const Tablelist = ({ data }) => {
                   <td>{exchange.trust_score}</td>
                   <td>{exchange.trust_score_rank}</td>
                   <td>{exchange.year_established}</td>
+                  <td><Link to={`/exchanges/${exchange.id}`}>View More</Link></td>
                 </tr>
               )
             })

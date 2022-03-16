@@ -1,5 +1,4 @@
 import React from 'react';
-import Home from './pages/Home';
 import { useRoutes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
