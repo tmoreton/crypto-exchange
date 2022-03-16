@@ -1,6 +1,10 @@
 # Crypto Exchange
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project can be found at (https://crypto-exchange-stake.netlify.app).
+
+![Homepage](/src/assets/screnshot-home.png)
+
+![Details Page](/src/assets/screnshot-details.png)
 
 ## To Run Locally
 `cd crypto-exchange`
