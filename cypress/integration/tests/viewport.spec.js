@@ -2,7 +2,7 @@
 
 context('Viewport', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/exchanges')
+    cy.visit('https://crypto-exchange-stake.netlify.app/')
   })
 
   it('cy.viewport() - set the viewport size and dimension', () => {
