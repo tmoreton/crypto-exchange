@@ -13,12 +13,13 @@ const Details = () => {
   const exchange = useSelector(state => state.crypto.exchange)
 
   useEffect(() => {
+    // Get expanded details on a specific exchange ie. id=binance
     dispatch(getExchange(id))
   }, [dispatch])
 
   return (
     <React.Fragment>
-      <Helmet title={exchange.name} />
+      <Helmet title={exchange && exchange.name} />
       <Container fluid className='p-0'>
         <Row className='p-5 justify-content-md-center'>
           <Col md={10}>

@@ -11,6 +11,7 @@ const Home = () => {
   const exchangeList = useSelector(state => state.crypto.exchanges)
 
   useEffect(() => {
+    // Get a list of the top 10 exchanges based on trust rank
     dispatch(getExchanges())
   }, [dispatch])
 

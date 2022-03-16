@@ -13,6 +13,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducer)
 
 export default () => {
+  // Remove logger in production, just for local development
   const store = createStore(persistedReducer, applyMiddleware(thunk, logger))
   const persistor = persistStore(store)
   return { store, persistor }

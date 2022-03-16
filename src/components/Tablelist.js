@@ -18,6 +18,7 @@ const Tablelist = ({ data }) => {
         </thead>
         <tbody>
           {
+            // Make sure the api has returned data and display relavent data
             data && data.map(exchange => {
               return (
                 <tr key={exchange.id}>

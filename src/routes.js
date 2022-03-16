@@ -10,18 +10,16 @@ import Details from './pages/Details';
 const routes = [
   {
     path: '/',
-    children: [
-      {
-        path: '/exchanges',
-        element: <Home />,
-      },
-      {
-        path: '/exchanges/:id',
-        element: <Details />,
-      },
-    ],
+    element: <Home />,
   },
-
+  {
+    path: '/exchanges',
+    element: <Home />,
+  },
+  {
+    path: '/exchanges/:id',
+    element: <Details />,
+  },
 ];
 
 export default routes;

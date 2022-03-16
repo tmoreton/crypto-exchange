@@ -16,6 +16,7 @@ export const getExchanges = () => {
 export const getExchange = (id) => {
   return async (dispatch) => {
     try {
+      // since it's a single page app we dont want old cached data flashing before the API finishes running
       dispatch({ type: 'CLEAR_EXCHANGE'})
       const response = await axios.get(`${API_URL}/exchanges/${id}`)
       // Get more details on a specific exchange
