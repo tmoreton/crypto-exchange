@@ -3,11 +3,14 @@ import Home from './pages/Home';
 import { useRoutes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-import { store } from './redux/store';
+import createStore from './redux/store';
 import routes from './routes';
+import Navigation from './components/Navigation';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const App = () => {
   const content = useRoutes(routes);
+  const { store, persistor } = createStore();
 
   return (
     <HelmetProvider>
@@ -16,7 +19,10 @@ const App = () => {
         defaultTitle="Crypto Exchange"
       />
       <Provider store={store}>
-        {content}
+        <PersistGate persistor={persistor}>
+          <Navigation />
+          {content}
+        </PersistGate>
       </Provider>
     </HelmetProvider>
   );
