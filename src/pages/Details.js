@@ -6,6 +6,8 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { getExchange } from '../redux/actions';
 import { useParams, Link } from 'react-router-dom';
 import Loader from '../components/Loader';
+import twitter from '../assets/twitter.png';
+import facebook from '../assets/facebook.png';
 
 const Details = () => {
   const { id } = useParams()
@@ -30,11 +32,33 @@ const Details = () => {
                 <Card.Body>
                   <Card.Title>{exchange.name}</Card.Title>
                   <Card.Text>
+                    {exchange.description}
+                  </Card.Text>
+                  <Card.Text>
                     {exchange.country}
                   </Card.Text>
                   <Card.Text>
-                    <b>Trust Score:</b> {exchange.trust_score} <br/>
-                    <b>Trust Score Rank:</b> {exchange.trust_score_rank}
+                    <p><b>Trust Score:</b> {exchange.trust_score}</p>
+                    <p><b>Trust Score Rank:</b> {exchange.trust_score_rank}</p>
+                  </Card.Text>
+                  <Card.Text>
+                    <Row className="justify-content-md-center">
+                      <Col md={1}>
+                      { exchange.twitter_handle && 
+                        <div>
+                          <img src={twitter} width="50" height="50" alt="Twitter"/>
+                          <p><b>{exchange.twitter_handle}</b></p>
+                        </div>
+                      }
+                      </Col>
+                      <Col md={1}>
+                      { exchange.facebook_url && 
+                        <a href={exchange.facebook_url} target="_blank" rel="noopener noreferrer">
+                          <img src={facebook}  width="50" height="50" alt="Facebook"/>
+                        </a>
+                      }
+                      </Col>
+                    </Row>
                   </Card.Text>
                   <a href={ exchange.url } target="_blank" rel="noopener noreferrer">
                     <Button variant="primary">Go to {exchange.name}</Button>
