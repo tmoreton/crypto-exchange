@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { getExchange } from '../redux/actions';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 
 const Details = () => {
@@ -40,6 +40,9 @@ const Details = () => {
                     <Button variant="primary">Go to {exchange.name}</Button>
                   </a>
                 </Card.Body>
+                <Button variant="link">
+                  <Link to='/'>Go Back</Link>
+                </Button>
                 <Card.Footer className="text-muted">Established In {exchange.year_established}</Card.Footer>
               </Card>
               : <Loader />

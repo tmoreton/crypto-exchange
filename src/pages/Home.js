@@ -19,7 +19,7 @@ const Home = () => {
     <React.Fragment>
       <Helmet title='Home Page' />
       <Container fluid className='p-0'>
-        <Row className='p-5 justify-content-md-center'>
+        <Row className='m-5 justify-content-md-center overflow-auto'>
           <Col md={10}>
             <Tablelist data={exchangeList}/>
           </Col>

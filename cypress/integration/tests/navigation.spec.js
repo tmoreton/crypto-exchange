@@ -1,56 +1,36 @@
-/// <reference types="cypress" />
+/*eslint-disable */
 
 context('Navigation', () => {
   beforeEach(() => {
     cy.visit('https://crypto-exchange-stake.netlify.app/')
-    cy.get('.navbar-nav').contains('Commands').click()
-    cy.get('.dropdown-menu').contains('Navigation').click()
+    // Make sure page loads from server
+    cy.get('.navbar-brand').should('be.visible')
   })
 
-  it('cy.go() - go back or forward in the browser\'s history', () => {
-    // https://on.cypress.io/go
-
-    cy.location('pathname').should('include', 'navigation')
+  it('It will go back or forward in the browser\'s history', () => {
+    cy.contains('View More').click()
+    // Any view more click should contain the path of exchanges
+    cy.location('pathname').should('include', 'exchanges')
 
     cy.go('back')
-    cy.location('pathname').should('not.include', 'navigation')
+    cy.location('pathname').should('not.include', 'exchanges')
 
     cy.go('forward')
-    cy.location('pathname').should('include', 'navigation')
+    cy.location('pathname').should('include', 'exchanges')
 
     // clicking back
     cy.go(-1)
-    cy.location('pathname').should('not.include', 'navigation')
+    cy.location('pathname').should('not.include', 'exchanges')
 
     // clicking forward
     cy.go(1)
-    cy.location('pathname').should('include', 'navigation')
+    cy.location('pathname').should('include', 'exchanges')
   })
 
-  it('cy.reload() - reload the page', () => {
-    // https://on.cypress.io/reload
+  it('It will reload the page', () => {
     cy.reload()
 
     // reload the page without using the cache
     cy.reload(true)
   })
-
-  it('cy.visit() - visit a remote url', () => {
-    // https://on.cypress.io/visit
-
-    // Visit any sub-domain of your current domain
-
-    // Pass options to the visit
-    cy.visit('https://www.binance.com/en', {
-      timeout: 50000, // increase total time for the visit to resolve
-      onBeforeLoad (contentWindow) {
-        // contentWindow is the remote page's window object
-        expect(typeof contentWindow === 'object').to.be.true
-      },
-      onLoad (contentWindow) {
-        // contentWindow is the remote page's window object
-        expect(typeof contentWindow === 'object').to.be.true
-      },
-    })
-    })
 })

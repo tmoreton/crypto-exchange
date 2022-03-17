@@ -8,7 +8,9 @@ This project can be found at (https://crypto-exchange-stake.netlify.app).
 
 ## To Run Locally
 `cd crypto-exchange`
+
 `npm install`
+
 `npm start`
 
 ## To Run Cypress
